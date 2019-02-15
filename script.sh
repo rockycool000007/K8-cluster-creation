@@ -21,7 +21,9 @@ apt-get update
 
 apt-get install -yq docker-ce
 
+systemctl start docker
 
+systemctl enable docker
 
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
 
@@ -32,6 +34,10 @@ EOF
 sudo apt-get update -y
 
 sudo apt-get install -y  kubelet kubeadm kubectl kubernetes-cni nfs-common
+
+systemctl start kubelet
+
+systemctl enable kubelet
 
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
 sudo swapoff -a
